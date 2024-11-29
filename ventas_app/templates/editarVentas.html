@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block cuerpo %}
+<iiv class="row">
+
+<div class="col-md-4 offset-md-4">
+<!-- La targeta card -->
+<div class="card"> <!-- targeta -->
+    <div class="card-body">
+        <form action="/editarVentas/" method="POST"> {% csrf_token %} <!--- formulario -->
+            
+            <div class="form-group">
+                <input type="number" id="numID_venta" name="numID_venta" class="form-control"
+                value="{{misVentas.ID_venta}}" placeholder="ID de la Venta" readonly required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="number" id="numPrecio" name="numPrecio" class="form-control" 
+                value="{{misVentas.Precio}}" placeholder="Precio de la Venta"  required>     
+            </div>
+
+            <div class="form-group py-2">
+                <input type="date" id="datFecha" name="datFecha" class="form-control"
+                value="{{misVentas.Fecha|date:'Y-m-d'}}" placeholder="Fecha de la compra" required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="number" id="numID_Producto" name="numID_Producto" class="form-control"
+                value="{{misVentas.ID_Producto}}" placeholder="ID del producto"  required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="number" id="numID_Cliente" name="numID_Cliente" class="form-control"
+                value="{{misVentas.ID_Cliente}}" placeholder="ID del Cliente"  required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="number" id="numID_Empleado" name="numID_Empleado" class="form-control"
+                value="{{misVentas.ID_Empleado}}" placeholder="ID del Empleado" required>
+            </div>
+
+            <div class="form-group py-2">
+                <input type="number" id="numID_Sucursal" name="numID_Sucursal" class="form-control"
+                value="{{misVentas.ID_Sucursal}}" placeholder="ID de la Sucursal"  required>
+            </div>
+            <div class="form-group py-1">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form><!--- formulario -->
+    </div>
+</div> <!-- targeta -->
+
+
+<!-- La targeta card -->
+
+</div><!-- columna -->
+
+</div><!-- La fila -->
+
+{% endblock %}
